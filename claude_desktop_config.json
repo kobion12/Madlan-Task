@@ -1,0 +1,19 @@
+{
+  "mcpServers": {
+    "filesystem": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-filesystem",
+        "/PATH/TO/SHEETS/FOLDER"
+      ]
+    },
+    "madlan-task": {
+      "command": "node",
+      "args": ["/PATH/TO/PROJECT/FOLDER/madlan-home-task/build/index.js"],
+      "env": {
+        "GOOGLE_MAPS_API_KEY": "PUT_YOR_GOOGLE_MAPS_API_KEY_HERE"
+      }
+    }
+  }
+}

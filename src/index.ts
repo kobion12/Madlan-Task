@@ -6,10 +6,13 @@ import { parse as csvParse } from "csv-parse/sync";
 import * as XLSX from "xlsx";
 import * as fs from "fs/promises";
 import path from "path";
+import { fileURLToPath } from "url";
 
 const GOOGLE_API_KEY = process.env.GOOGLE_MAPS_API_KEY || "YOUR_API_KEY";
-const PROJECT_ROOT = path.dirname(require.main?.filename || process.argv[1]);
-const CACHE_DIR = path.join(PROJECT_ROOT, "places_cache");const CACHE_TTL_MS = 7 * 24 * 60 * 60 * 1000; // 7 days
+const __filename = fileURLToPath(import.meta.url);
+const PROJECT_ROOT = path.dirname(__filename);
+const CACHE_DIR = path.join(PROJECT_ROOT, "places_cache");
+const CACHE_TTL_MS = 7 * 24 * 60 * 60 * 1000; // 7 days
 const USER_AGENT = "address-geocoder/2.0";
 
 // --- Haversine distance in kilometers ---
